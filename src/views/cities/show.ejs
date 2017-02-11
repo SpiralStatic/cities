@@ -1,1 +1,19 @@
 <h1><%= title %></h1>
+
+<div class="col s12 m12 l12">
+    <h3>[<%= city.ranking %>] <%= city.name %></h3>
+    <p><%= city.country %></p>
+    <p><%= city.population %></p>
+    <p><%= city.landmarks %></p>
+</div>
+
+<div class="divider"></div>
+
+<div class="col s6 m6 l6">
+    <a class="btn blue darken-4 hoverable" href="/<%= city.id %>/edit">Edit</a>
+</div>
+
+<form class="col s6 m6 l6" action="/<%= city.id %>" method="post">
+    <input type="hidden" name="_method" value="Delete">
+    <input class="btn blue darken-4 hoverable" type="submit" value="delete">
+</form>
