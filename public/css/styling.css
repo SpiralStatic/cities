@@ -2,20 +2,62 @@ body {
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 
-nav>div.nav-wrapper>a {
-    margin: 0 5%;
+
+/*----=NAV BAR=----*/
+
+nav a:hover {
+    color: #f6ce25;
 }
 
-img {
-    max-height: 40vh;
-    max-width: 96%;
-    border: 4px outset #039be5;
-    margin: 2%;
+nav>div.nav-wrapper>a {
+    margin: 0 5%;
+    padding: 0 2%;
 }
+
+
+/*----=HEADERS=----*/
+
+h1 {
+    margin: 1.5rem 0;
+}
+
+h3 {
+    margin: 1rem 0;
+}
+
+.container {
+    width: 80%;
+}
+
+.ranking-info {
+    text-align: right;
+}
+
+
+/*----=CARDS=----*/
 
 .card {
     margin: 0;
-    padding: 1%;
+}
+
+img {
+    max-height: 36vh;
+    max-width: 96%;
+    border: 2px solid #039be5;
+    margin: 2%;
+    filter: saturate(150%);
+}
+
+div.container>div.card>a {
+    filter: grayscale(50%);
+}
+
+div.container>div.card>a:hover {
+    filter: grayscale(0%);
+}
+
+div.container>div.card>a:hover {
+    color: #f6ce25;
 }
 
 .btn {
