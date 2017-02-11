@@ -1,1 +1,15 @@
-<h1>INDEX</h1>
+<h1><%= title %></h1>
+
+<% for(var i = 0; i < cities.length; i++) { %>
+    <div class="card col s12 m12 l6">
+        <div>
+            <a href="/<%=cities[i].id %>">
+                <h3><%= cities[i].name %></h3>
+                <p><%= cities[i].country %></p>
+                <p><%= cities[i].population %></p>
+                <p><%= cities[i].ranking %></p>
+                <p><%= cities[i].landmarks %></p>
+            </a>
+        </div>
+    </div>
+<% } %>

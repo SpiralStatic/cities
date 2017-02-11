@@ -1,6 +1,6 @@
 <h3>FORM</h3>
 
-<form class="col s12 m8 offset-m2 l6 offset-l3 action="/<%= city.id %>" method="post">
+<form class="col s12 m8 offset-m2 l6 offset-l3" action="/<%= city.id %>" method="post">
     <% if (city.id !== "") { %>
         <input type="hidden" name="_method" value="put">
     <% } %>

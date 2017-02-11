@@ -9,7 +9,8 @@ var routes = require('./config/routes');
 var app = express();
 
 // Connect to the database
-mongoose.connect('mongodb://localhost/<DB>', function() {
+mongoose.connect('mongodb://localhost/cities', function(err) {
+    if (err) return console.log("Failed to connect");
     console.log("Database is now connected");
 });
 
@@ -18,12 +19,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Method Override
 app.use(methodOverride(function(req, res){
-  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-    // look in urlencoded POST bodies and delete it
-    var method = req.body._method;
-    delete req.body._method;
-    return method;
-  }
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+        // look in urlencoded POST bodies and delete it
+        var method = req.body._method;
+        delete req.body._method;
+        return method;
+}
 }));
 
 // Set the view engine to be ejs

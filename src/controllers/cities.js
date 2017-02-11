@@ -15,17 +15,17 @@ function indexCities(req, res) {
 }
 
 function showCity(req, res) {
-    // Get the city to load a single post from its mongo id
+    // Get the city to load a single city from its mongo id
     City.findById(req.params.id, function(err, city) {
 
-        // Check to see if post is returned
+        // Check to see if city is returned
         if (!city) return res.status(404).send("Not Found");
 
         // Check for errors and return 500 if there is a problem
         if (err) return res.status(500).send(err.message);
 
         res.render("cities/show", {
-            title: "City",
+            title: "City View",
             city: city
         });
     });
@@ -50,7 +50,7 @@ function newCity(req, res) {
 function editCity(req, res) {
     City.findById(req.params.id, function(err, city) {
 
-        // Check to see if post is returned
+        // Check to see if city is returned
         if (!city) return res.status(404).send("Not Found");
 
         // Check for errors and return 500 if there is a problem
