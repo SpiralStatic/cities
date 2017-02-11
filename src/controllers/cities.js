@@ -43,7 +43,7 @@ function newCity(req, res) {
     };
 
     res.render("cities/new", {
-        title: "New City",
+        title: "Add City",
         city: newCity
     });
 }
