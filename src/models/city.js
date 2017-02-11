@@ -5,7 +5,7 @@ var citySchema = mongoose.Schema({
     name: String,
     country: String,
     population: Number,
-    ranking: Number, 
+    ranking: Number,
     landmarks: [String]
 });
 

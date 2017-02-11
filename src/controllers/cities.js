@@ -34,6 +34,7 @@ function showCity(req, res) {
 function newCity(req, res) {
     // Create an empty City
     var newCity = {
+        id: "",
         name: "",
         country: "",
         population: "",
