@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 // Create a new schema
 var citySchema = mongoose.Schema({
     name: String,
+    image: String,
     country: String,
     population: Number,
     ranking: Number,
