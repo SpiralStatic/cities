@@ -38,7 +38,7 @@ function newCity(req, res) {
         country: "",
         population: "",
         ranking: "",
-        landmarks: ["", ""]
+        landmarks: ""
     };
 
     res.render("cities/new", {

@@ -1,1 +1,39 @@
 <h3>FORM</h3>
+
+<form class="col s12 m8 offset-m2 l6 offset-l3 action="/<%= city.id %>" method="post">
+    <% if (city.id !== "") { %>
+        <input type="hidden" name="_method" value="put">
+    <% } %>
+
+    <div class="input-field">
+        <i class="material-icons prefix">info</i>
+        <label for="name">Name</label>
+        <input type="text" class="validate" name="name" class="validate" value="<%= city.name %>">
+    </div>
+
+    <div class="input-field">
+        <i class="material-icons prefix">language</i>
+        <label for="country">Country</label>
+        <input type="text" class="validate" name="country" class="validate" value="<%= city.country %>">
+    </div>
+
+    <div class="input-field">
+        <i class="material-icons prefix">perm_identity</i>
+        <label for="population">Population</label>
+        <input type="number" name="population" class="validate" value="<%= city.population %>" min="1000000" max="15000000">
+    </div>
+
+    <div class="input-field">
+        <i class="material-icons prefix">assessment</i>
+        <label for="ranking">Ranking</label>
+        <input type="number" name="ranking" class="validate" value="<%= city.ranking %>" min="1" max="70">
+    </div>
+
+    <div class="input-field">
+        <i class="material-icons prefix">star</i>
+        <label for="landmarks">Landmarks</label>
+        <input type="landmarks" name="landmarks" value="<%= city.landmarks %>">
+    </div>
+
+    <input class="btn blue darken-4 hoverable" type="submit" value="Submit City">
+</form>
