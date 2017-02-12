@@ -21,7 +21,6 @@ function indexCities(req, res) {
 }
 
 function showCity(req, res) {
-    console.log(req);
     // Get the city to load a single city from its mongo id
     City.findById(req.params.id, function(err, city) {
 

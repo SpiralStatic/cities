@@ -3,11 +3,27 @@
     <p class="ranking-info col s7 m7 l7">* [Num] = EIU Ranking</p>
 </div>
 
-<form class="col s6 m6 l6" action="/" method="get">
-    <input type="hidden" name="sorting" value="population">
-    <input type="hidden" name="direction" value="-1">
-    <input class="btn blue darken-4 hoverable waves-effect waves-ripples" type="submit" value="Population">
-</form>
+<div class="valign-wrapper col s12 m12 l12 sort-bar">
+    <h4 class="col s3 m3 l3">Sort By:</h4>
+
+    <form class="col s3 m3 l3" action="/" method="get">
+        <input type="hidden" name="sorting" value="ranking">
+        <input type="hidden" name="direction" value="1">
+        <input class="btn hoverable waves-effect waves-ripples" type="submit" value="Ranking">
+    </form>
+
+    <form class="col s3 m3 l3" action="/" method="get">
+        <input type="hidden" name="sorting" value="population">
+        <input type="hidden" name="direction" value="-1">
+        <input class="btn hoverable waves-effect waves-ripples" type="submit" value="Population">
+    </form>
+
+    <form class="col s3 m3 l3" action="/" method="get">
+        <input type="hidden" name="sorting" value="name">
+        <input type="hidden" name="direction" value="1">
+        <input class="btn hoverable waves-effect waves-ripples" type="submit" value="Name">
+    </form>
+</div>
 
 <% for(var i = 0; i < cities.length; i++) { %>
     <div class="card col s12 m12 l6 center">
