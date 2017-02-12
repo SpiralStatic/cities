@@ -11,7 +11,7 @@ function indexCities(req, res) {
         title: "Cities",
         cities: cities
     });
-});
+}).sort({ ranking: 1});
 }
 
 function showCity(req, res) {

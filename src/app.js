@@ -43,3 +43,5 @@ app.use(express.static('../public'));
 app.listen(3000, function() {
     console.log("Server Started. Listening on port 3000");
 });
+
+module.exports = app;
