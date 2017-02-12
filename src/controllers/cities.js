@@ -1,20 +1,27 @@
 var City = require('../models/city');
 
 function indexCities(req, res) {
+    var sorting;
+    if(req.query.sorting) {
+        sorting = { [req.query.sorting]: req.query.direction };
+    } else  {
+        sorting = { "ranking": 1 };
+    }
     City.find({}, function(err, cities) {
 
-    // Check for errors and return 500 if there is a problem
-    if (err) return res.status(500).send(err.message);
+        // Check for errors and return 500 if there is a problem
+        if (err) return res.status(500).send(err.message);
 
-    // Data return so now we can render
-    res.render("cities/index", {
-        title: "Cities",
-        cities: cities
-    });
-}).sort({ ranking: 1});
+        // Data return so now we can render
+        res.render("cities/index", {
+            title: "Cities",
+            cities: cities
+        });
+    }).sort(sorting);
 }
 
 function showCity(req, res) {
+    console.log(req);
     // Get the city to load a single city from its mongo id
     City.findById(req.params.id, function(err, city) {
 

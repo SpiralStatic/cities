@@ -3,11 +3,19 @@
     <p class="ranking-info col s7 m7 l7">* [Num] = EIU Ranking</p>
 </div>
 
+<form class="col s6 m6 l6" action="/" method="get">
+    <input type="hidden" name="sorting" value="population">
+    <input type="hidden" name="direction" value="-1">
+    <input class="btn blue darken-4 hoverable waves-effect waves-ripples" type="submit" value="Population">
+</form>
+
 <% for(var i = 0; i < cities.length; i++) { %>
     <div class="card col s12 m12 l6 center">
         <a href="/<%= cities[i].id %>">
             <h3>[<%= cities[i].ranking %>] <%= cities[i].name %></h3>
-            <img class="z-depth-1" src="<%= cities[i].image %>" alt="Image of <% cities[i].name %>">
+            <div class="card-image">
+                <img class="z-depth-1" src="<%= cities[i].image %>" alt="Image of <% cities[i].name %>">
+            </div>
         </a>
     </div>
 <% } %>
