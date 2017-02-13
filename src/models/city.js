@@ -2,11 +2,31 @@ var mongoose = require('mongoose');
 
 // Create a new schema
 var citySchema = mongoose.Schema({
-    name: String,
-    image: String,
-    country: String,
-    population: Number,
-    ranking: Number,
+    name: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    image: {
+        type: String
+    },
+    country: {
+        type: String,
+        required: true
+    },
+    population: {
+        type: Number,
+        required: true,
+        min: 1000000,
+        max: 50000000
+    },
+    ranking: {
+        type: Number,
+        required: true,
+        unique: true,
+        min: 1,
+        max: 70
+    },
     landmarks: [String]
 });
 
