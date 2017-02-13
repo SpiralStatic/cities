@@ -5,7 +5,7 @@
         <h3><%= city.name %></h3>
         <p>Ranking: <%= city.ranking %></p>
         <p>Country: <%= city.country %></p>
-        <p>Population: <%= city.population %></p>
+        <p>Population: <%= city.population.toLocaleString('en', {useGrouping:true}) %></p>
         <p>Landmarks: <%= city.landmarks %></p>
     </div>
 

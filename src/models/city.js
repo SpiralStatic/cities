@@ -1,18 +1,38 @@
 var mongoose = require('mongoose');
 
+function validateBannedWords(value) {
+    var bannedWords = ['fuck', 'shit', 'twat'];
+    // Check for each banned word in the body text
+    var word = null;
+    while (word = bannedWords.pop()) {
+        if (value.indexOf(word) !== -1)
+            return false;
+    }
+    // None were found, you passed!
+    return true;
+}
+
 // Create a new schema
 var citySchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        validate: {
+            validator: validateBannedWords,
+            message: "Please use non-offensive vocabulary"
+        }
     },
     image: {
         type: String
     },
     country: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: validateBannedWords,
+            message: "Please use non-offensive vocabulary"
+        }
     },
     population: {
         type: Number,
@@ -27,7 +47,13 @@ var citySchema = mongoose.Schema({
         min: 1,
         max: 70
     },
-    landmarks: [String]
+    landmarks: [{
+        type: String,
+        validate: {
+            validator: validateBannedWords,
+            message: "Please use non-offensive vocabulary"
+        }
+    }]
 });
 
 // Tell mongoose to create a real model from our schema and export it

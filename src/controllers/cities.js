@@ -81,7 +81,7 @@ function createCity(req, res) {
 }
 
 function updateCity(req, res) {
-    City.findByIdAndUpdate(req.params.id, req.body, function(err, city) {
+    City.findByIdAndUpdate(req.params.id, {$set: req.body, runValidators: true}, function(err, city) {
 
         // Check for errors and return 500 if there is a problem
         if (err) return res.status(500).send(err.message);
