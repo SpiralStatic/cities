@@ -5,8 +5,7 @@ function validateBannedWords(value) {
     // Check for each banned word in the body text
     var word = null;
     while (word = bannedWords.pop()) {
-        if (value.indexOf(word) !== -1)
-            return false;
+        if (value.toLowerCase().indexOf(word) !== -1) return false;
     }
     // None were found, you passed!
     return true;

@@ -10,7 +10,7 @@ function indexCities(req, res) {
         City.find({}, function(err, cities) {
 
         // Check for errors and return 500 if there is a problem
-        if (err) return res.status(500).send(err.message);
+        if (err) return res.status(500).send("<h1>" + err.errors.name.message + "</h1>");
 
         // Data return so now we can render
         res.render("cities/index", {
@@ -28,7 +28,7 @@ function showCity(req, res) {
         if (!city) return res.status(404).send("Not Found");
 
         // Check for errors and return 500 if there is a problem
-        if (err) return res.status(500).send(err.message);
+        if (err) return res.status(500).send("<h1>" + err.errors.name.message + "</h1>");
 
         res.render("cities/show", {
             title: "City View",
@@ -61,7 +61,7 @@ function editCity(req, res) {
         if (!city) return res.status(404).send("Not Found");
 
         // Check for errors and return 500 if there is a problem
-        if (err) return res.status(500).send(err.message);
+        if (err) return res.status(500).send("<h1>" + err.errors.name.message + "</h1>");
 
         res.render("cities/edit", {
             title: "Edit City",
@@ -73,7 +73,7 @@ function editCity(req, res) {
 function createCity(req, res) {
     City.create(req.body, function(err, city) {
         // Check for errors and return 500 if there is a problem
-        if (err) return res.status(500).send(err.message);
+        if (err) return res.status(500).send("<h1>" + err.errors.name.message + "</h1>");
 
         // Redirect the user to a GET route. We'll go back to the INDEX.
         res.redirect("/");
@@ -84,7 +84,7 @@ function updateCity(req, res) {
     City.findByIdAndUpdate(req.params.id, {$set: req.body, runValidators: true}, function(err, city) {
 
         // Check for errors and return 500 if there is a problem
-        if (err) return res.status(500).send(err.message);
+        if (err) return res.status(500).send("<h1>" + err.errors.name.message + "</h1>");
 
         // Redirect the user to a GET route. We'll go back to the INDEX.
         res.redirect("/");
@@ -95,7 +95,7 @@ function deleteCity(req, res) {
     City.findByIdAndRemove(req.params.id, function(err, city) {
 
         // Check for errors and return 500 if there is a problem
-        if (err) return res.status(500).send(err.message);
+        if (err) return res.status(500).send("<h1>" + err.errors.name.message + "</h1>");
 
         // Redirect to a GET request
         res.redirect("/");
