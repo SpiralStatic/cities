@@ -40,7 +40,7 @@ h3 {
 
 /*----=CARDS=----*/
 
-.card {
+div.card {
     margin: 0;
 }
 
@@ -50,19 +50,22 @@ img {
     border: 2px solid #039be5;
     margin: 2%;
     padding: 0;
+}
+
+div.card-image>img {
     filter: saturate(150%);
 }
 
-div.container>div.card>a {
+div.card>a:hover {
+    color: #f6ce25;
+}
+
+div.card>a>div.card-image {
     filter: grayscale(50%);
 }
 
-div.container>div.card>a:hover {
+div.card>a>div.card-image:hover {
     filter: grayscale(0%);
-}
-
-div.container>div.card>a:hover {
-    color: #f6ce25;
 }
 
 
