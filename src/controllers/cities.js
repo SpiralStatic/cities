@@ -7,7 +7,7 @@ function indexCities(req, res) {
     } else  {
         sorting = { "ranking": 1 };
     }
-    City.find({}, function(err, cities) {
+        City.find({}, function(err, cities) {
 
         // Check for errors and return 500 if there is a problem
         if (err) return res.status(500).send(err.message);
